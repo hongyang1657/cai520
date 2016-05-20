@@ -37,7 +37,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:text="食聊"
+                android:text="菜友帮"
                 android:textColor="@color/colorCrociOne"
                 android:textSize="30sp" />
 
