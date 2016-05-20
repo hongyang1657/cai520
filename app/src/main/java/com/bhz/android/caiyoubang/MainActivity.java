@@ -42,7 +42,7 @@ public class MainActivity extends Activity{//利用借口实现和fragment的数
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
+
         setContentView(R.layout.activity_main);
         //判断是否需要进入引导页
         sp=getSharedPreferences("app", Context.MODE_PRIVATE);  //获取SHaredPreferences服务
