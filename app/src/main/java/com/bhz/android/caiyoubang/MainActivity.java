@@ -38,7 +38,7 @@ public class MainActivity extends Activity{//利用借口实现和fragment的数
     ImageView iv_sendMenu;
 
 
-
+//for the king
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
