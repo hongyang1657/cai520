@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/rl_user_phone_register_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorCroci"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/tv_user_phone_register_back"
+            android:layout_width="52dp"
+            android:layout_height="52dp"
+            android:drawableLeft="@mipmap/back" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/tv_user_phone_register_back"
+            android:layout_alignTop="@id/tv_user_phone_register_back"
+            android:layout_toRightOf="@id/tv_user_phone_register_back"
+            android:gravity="center"
+            android:text="填写手机号"
+            android:textColor="@color/colorBlackOne"
+            android:textSize="25sp" />
+    </RelativeLayout>
+
+    <EditText
+        android:id="@+id/et_user_phone_register_phone_number"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@id/rl_user_phone_register_title"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="20dp"
+        android:background="@mipmap/shurukuang"
+        android:hint="请输入手机号"
+        android:maxLength="11"
+        android:ems="11"
+        android:inputType="phone">
+        <requestFocus/>
+        </EditText>
+
+    <RelativeLayout
+        android:id="@+id/rl_user_phone_register_verification_code"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@id/et_user_phone_register_phone_number"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"
+        android:background="@color/colorWhite">
+
+        <EditText
+            android:id="@+id/et_user_phone_register_verification_code"
+            android:layout_width="250dp"
+            android:layout_height="match_parent"
+            android:background="@mipmap/shurukuang"
+            android:hint="请输入验证码"
+            android:ems="4"
+            android:maxLength="4"
+            android:inputType="phone"/>
+
+        <TextView
+            android:id="@+id/tv_user_phone_register_get_authcode"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toRightOf="@id/et_user_phone_register_verification_code"
+            android:background="@color/colorCroci"
+            android:gravity="center"
+            android:text="获取验证码"
+            android:textSize="20sp"
+            android:visibility="visible"/>
+
+        <TextView
+            android:id="@+id/tv_user_phone_register_time_hint"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toRightOf="@id/et_user_phone_register_verification_code"
+            android:background="@color/colorCroci"
+            android:gravity="center_horizontal"
+            android:text="提示信息"
+            android:textSize="17sp"
+            android:visibility="gone"/>
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_user_phone_register_next"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@id/rl_user_phone_register_verification_code"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="30dp"
+        android:background="@color/colorCrociOne"
+        android:gravity="center"
+        android:text="下一步"
+        android:textSize="20sp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@+id/tv_user_phone_register_next"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:id="@+id/tv_user_phone_register_middle"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:text="意"
+            android:textSize="20sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_toLeftOf="@id/tv_user_phone_register_middle"
+            android:text="我已阅读并同"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/tv_user_phone_register_serve"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_toRightOf="@id/tv_user_phone_register_middle"
+            android:text="食疗服务条款"
+            android:textColor="@color/colorAccent"
+            android:textSize="20sp" />
+
+    </RelativeLayout>
+</RelativeLayout>

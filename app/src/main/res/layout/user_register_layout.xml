@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/rl_user_phone_register_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorCroci"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/tv_user_register_back"
+            android:layout_width="52dp"
+            android:layout_height="52dp"
+            android:drawableLeft="@mipmap/back" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/tv_user_register_back"
+            android:layout_alignTop="@id/tv_user_register_back"
+            android:layout_toRightOf="@id/tv_user_register_back"
+            android:gravity="center"
+            android:text="注册账号"
+            android:textColor="@color/colorBlackOne"
+            android:textSize="25sp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_user_register_phone_number"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@id/rl_user_phone_register_title"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="20dp">
+
+        <EditText
+            android:id="@+id/et_user_register_phone_number"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@mipmap/shurukuang"
+            android:hint="请输入您的账号" />
+
+        <TextView
+            android:id="@+id/tv_user_register_test"
+            android:layout_width="90dp"
+            android:layout_height="match_parent"
+            android:text="检测账号"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:layout_alignParentRight="true"
+            android:background="@color/colorCroci"/>
+    </RelativeLayout>
+
+
+    <EditText
+        android:id="@+id/et_user_register_password"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@id/rl_user_register_phone_number"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@mipmap/shurukuang"
+        android:hint="请输入您的密码"
+        android:inputType="textPassword" />
+
+    <EditText
+        android:id="@+id/et_user_register_password_again"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@id/et_user_register_password"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@mipmap/shurukuang"
+        android:hint="请重新输入您的密码"
+        android:inputType="textPassword" />
+
+    <TextView
+        android:id="@+id/tv_user_register_login"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@id/et_user_register_password_again"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="30dp"
+        android:background="@color/colorCrociOne"
+        android:gravity="center"
+        android:text="注册"
+        android:textSize="20sp" />
+
+</RelativeLayout>

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/rl_user_my_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorGraiysh"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/tv_user_my_back"
+            android:layout_width="52dp"
+            android:layout_height="52dp"
+            android:drawableLeft="@mipmap/back" />
+
+        <Button
+            android:id="@+id/btn_my_set"
+            android:layout_width="52dp"
+            android:layout_height="52dp"
+            android:layout_alignParentRight="true"
+            android:text="设置" />
+
+        <TextView
+            android:id="@+id/tv_my_informe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="我的"
+            android:textSize="25sp" />
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rl_user_my_title"
+        android:layout_centerInParent="true"
+        android:src="@mipmap/shurukuang"
+        android:id="@+id/imageView" />
+
+    <TextView
+        android:id="@+id/tv_user_my_blank"
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:layout_below="@id/rl_user_my_title"
+        android:text="这是一个空白的text"
+        android:visibility="invisible" />
+
+    <ImageView
+        android:id="@+id/img_user_my_photo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_user_my_blank"
+        android:layout_centerHorizontal="true"
+        android:src="@mipmap/share_qq" />
+
+    <TextView
+        android:id="@+id/tx_user_my_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/img_user_my_photo"
+        android:layout_centerHorizontal="true"
+        android:text="昵称"
+        android:textSize="25sp" />
+
+    <TextView
+        android:id="@+id/tx_user_my_attention"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tx_user_my_name"
+        android:paddingLeft="100dp"
+        android:text="关注:0"
+        android:textSize="25sp" />
+
+    <TextView
+        android:id="@+id/tx_user_my_fans"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tx_user_my_name"
+        android:layout_toRightOf="@id/tx_user_my_attention"
+        android:paddingLeft="40dp"
+        android:text="粉丝:0"
+        android:textSize="25sp" />
+
+    <ImageView
+        android:id="@+id/img_user_my_line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_centerInParent="true"
+        android:background="@color/colorBlack" />
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/img_user_my_line"
+        android:orientation="horizontal"
+        android:id="@+id/rg_user_my">
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:text="菜谱"
+            android:gravity="center"
+            android:textSize="25sp" />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:text="日志"
+            android:gravity="center"
+            android:textSize="25sp" />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:text="收藏"
+            android:gravity="center"
+            android:textSize="25sp" />
+    </RadioGroup>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></LinearLayout>
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/rg_user_my" />
+
+</RelativeLayout>

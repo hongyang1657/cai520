@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/rl_user_change_key_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorCroci"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/tv_change_key_back"
+            android:layout_width="52dp"
+            android:layout_height="52dp"
+            android:drawableLeft="@mipmap/back" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/tv_change_key_back"
+            android:layout_alignTop="@id/tv_change_key_back"
+            android:layout_toRightOf="@id/tv_change_key_back"
+            android:gravity="center"
+            android:text="修改密码"
+            android:textColor="@color/colorBlackOne"
+            android:textSize="25sp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_change_key_key"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@id/rl_user_change_key_title"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="20dp">
+
+        <EditText
+            android:id="@+id/et_change_key_first"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@mipmap/shurukuang"
+            android:hint="请输入您的新密码" />
+
+    </RelativeLayout>
+
+    <EditText
+        android:id="@+id/et_change_key_second"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@id/rl_change_key_key"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@mipmap/shurukuang"
+        android:hint="请再次输入您的密码"
+        android:inputType="textPassword" />
+
+    <TextView
+        android:id="@+id/tv_change_key_change"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@id/et_change_key_second"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="30dp"
+        android:background="@color/colorCrociOne"
+        android:gravity="center"
+        android:text="修改"
+        android:textSize="20sp" />
+
+</RelativeLayout>

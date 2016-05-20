@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorCroci"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/tv_user_edit_data_back"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_vertical"
+            android:background="@mipmap/back" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/tv_user_edit_data_back"
+            android:paddingLeft="10dp"
+            android:text="编辑资料"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/tv_user_edit_data_save"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="保存"
+            android:textSize="30sp" />
+
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/img_user_edit_data_photo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="40dp"
+        android:layout_marginTop="20dp"
+        android:src="@mipmap/share_qq" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorCroci">
+
+        <TextView
+            android:id="@+id/tv_user_edit_data_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:text="昵称"
+            android:textSize="25sp" />
+
+        <EditText
+            android:id="@+id/et_user_edit_data_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/tv_user_edit_data_name"
+            android:background="@color/colorCroci"
+            android:gravity="right"
+            android:padding="5dp"
+            android:hint="例如:倩妮"
+            android:textSize="25sp" />
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/colorWhite" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorCroci">
+
+        <TextView
+            android:id="@+id/tv_user_edit_data_sex"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:text="性别"
+            android:textSize="25sp" />
+
+        <EditText
+            android:id="@+id/et_user_edit_data_sex"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/tv_user_edit_data_sex"
+            android:background="@color/colorCroci"
+            android:gravity="right"
+            android:padding="5dp"
+            android:hint="例如;女"
+            android:textSize="25sp" />
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/colorWhite" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorCroci">
+
+        <TextView
+            android:id="@+id/tv_user_edit_data_birthday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:text="生日"
+            android:textSize="25sp" />
+
+        <EditText
+            android:id="@+id/et_user_edit_data_birthday"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/tv_user_edit_data_birthday"
+            android:background="@color/colorCroci"
+            android:gravity="right"
+            android:padding="5dp"
+            android:hint="例如:1996-07-16"
+            android:textSize="25sp" />
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/colorWhite" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorCroci">
+
+        <TextView
+            android:id="@+id/tv_user_edit_data_area"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:text="地区"
+            android:textSize="25sp" />
+
+        <EditText
+            android:id="@+id/et_user_edit_data_area"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/tv_user_edit_data_area"
+            android:background="@color/colorCroci"
+            android:gravity="right"
+            android:padding="5dp"
+            android:hint="例如：瓯北"
+            android:textSize="25sp" />
+
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/colorWhite" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorCroci">
+
+        <TextView
+            android:id="@+id/tv_user_edit_data_QMD"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:text="签名"
+            android:textSize="25sp" />
+
+        <EditText
+            android:id="@+id/et_user_edit_data_QMD"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/tv_user_edit_data_QMD"
+            android:background="@color/colorCroci"
+            android:gravity="right"
+            android:padding="5dp"
+            android:hint="这家伙很懒什么都没有留下"
+            android:textSize="25sp" />
+
+    </RelativeLayout>
+</LinearLayout>

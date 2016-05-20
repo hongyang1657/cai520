@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/rl_home_find_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorCroci"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/tv_home_find_back"
+            android:layout_width="52dp"
+            android:layout_height="52dp"
+            android:drawableLeft="@mipmap/back" />
+
+        <EditText
+            android:id="@+id/et_home_find_input"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/tv_home_find_back"
+            android:layout_alignTop="@id/tv_home_find_back"
+            android:layout_toRightOf="@id/tv_home_find_back"
+            android:background="@color/colorWhite"
+            android:gravity="center"
+            android:textColor="@color/colorBlackOne"
+            android:textSize="25sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/et_home_find_input"
+            android:layout_alignTop="@id/et_home_find_input"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/et_home_find_input"
+            android:drawableLeft="@mipmap/find" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_home_find_hot_find"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:padding="10dp"
+        android:text="热门搜索:"
+        android:textSize="25sp"
+        android:background="@color/colorCroci"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_home_find_hot_find"
+        android:background="@color/colorCroci">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="8dp"
+            android:text="红烧肉"
+            android:textSize="20sp"
+            android:gravity="center"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="8dp"
+            android:text="排骨"
+            android:textSize="20sp"
+            android:gravity="center"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="8dp"
+            android:text="蘑菇"
+            android:textSize="20sp"
+            android:gravity="center"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="8dp"
+            android:text="玉米汤"
+            android:textSize="20sp"
+            android:gravity="center"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="8dp"
+            android:text="蒸肉"
+            android:textSize="20sp"
+            android:gravity="center"/>
+    </LinearLayout>
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rl_home_find_title"
+        android:layout_above="@id/tv_home_find_hot_find"
+        android:id="@+id/lv_home_find"/>
+</RelativeLayout>
