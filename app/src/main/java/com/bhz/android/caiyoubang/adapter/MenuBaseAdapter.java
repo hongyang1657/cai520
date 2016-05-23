@@ -35,7 +35,7 @@ public class MenuBaseAdapter extends BaseAdapter{
 
     @Override
     public int getCount() {
-        return stepList.length;
+        return stepList==null?0:stepList.length;
     }
 
     @Override

@@ -140,6 +140,7 @@ public class DemoMenuActivity extends Activity{
                     intent.putExtra("MenuimageHead",MenuimageHead);
                     intent.putExtra("imgList",imgList);
                     intent.putExtra("stepList",stepList);
+                    intent.putExtra("CDKey",1);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
