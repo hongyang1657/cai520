@@ -138,7 +138,7 @@ public class MainActivity extends Activity{//利用借口实现和fragment的数
                 transaction.commit();
         }
     }
-
+//
     View.OnClickListener toSendMenu = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
