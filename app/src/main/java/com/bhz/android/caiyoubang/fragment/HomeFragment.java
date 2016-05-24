@@ -36,6 +36,7 @@ import com.bhz.android.caiyoubang.adapter.HotAdapter;
 import com.bhz.android.caiyoubang.adapter.TitleAdapter;
 import com.bhz.android.caiyoubang.data.EventSummary;
 import com.bhz.android.caiyoubang.data.ShareData;
+import com.bhz.android.caiyoubang.utils.EventDataPass;
 import com.bhz.android.caiyoubang.utils.MyOKHttpUtils;
 import com.bhz.android.caiyoubang.utils.RunningTime;
 
@@ -99,10 +100,9 @@ public class HomeFragment extends Fragment implements MyOKHttpUtils.OKHttpHelper
     List<ShareData> hotlist;
     Intent intent;
     Context context;
-    OkHttpClient client;
-    Handler handler = new Handler();
     HotAdapter hotadapter;
     MyOKHttpUtils helper;
+    EventDataPass activity;
 
     int MENU_CID_CHUANCAI = 10;//川菜
     int MENU_CID_YUECAI = 11;//粤菜
@@ -121,6 +121,7 @@ public class HomeFragment extends Fragment implements MyOKHttpUtils.OKHttpHelper
         init(view);
         return view;
     }
+
 
     //初始化控件
     private void init(View view) {
@@ -153,17 +154,16 @@ public class HomeFragment extends Fragment implements MyOKHttpUtils.OKHttpHelper
         gallery_title.setAdapter(titleadapter);
         gallery_title.setOnItemSelectedListener(titleselect);
         group_title.setOnCheckedChangeListener(titlegroupchoose);
-        btn_eventformore.setOnClickListener(eventformore);
         btn_forsearch.setOnClickListener(search);
     }
 
     //通过网络获取热门菜并将图片解析为Drawable文件
     private void sethotlist() {
 /*        for (int i = 0; i < 4; i++) {*/
-            int id = (int) (Math.random() * 30000 + 1);
-            String url = "http://apis.juhe.cn/cook/queryid";
-            helper.dogetID(url, id);
-            helper.excute(this);
+        int id = (int) (Math.random() * 30000 + 1);
+        String url = "http://apis.juhe.cn/cook/queryid";
+        helper.dogetID(url, id);
+        helper.excute(this);
     /*    }*/
     }
 
@@ -175,22 +175,14 @@ public class HomeFragment extends Fragment implements MyOKHttpUtils.OKHttpHelper
             startActivity(intent);
         }
     };
-    View.OnClickListener eventformore = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            Intent intent = new Intent(homepage, EventForMoreActivity.class);
-            Bundle bundle = new Bundle();
 
-            startActivity(intent);
-        }
-    };
 
     private void setRandomList() {  //随机抽取四张图片作为活动图片装填
-    /*    for (int i = 0; i < 4; i++) {*/
-        int random = ((int) (Math.random() * list.size()));
-        randomlist.add(list.get(random));
-        list.remove(random);
-    /*    }*/
+        for (int i = 0; i < 4; i++) {
+            int random = ((int) (Math.random() * list.size()));
+            randomlist.add(list.get(random));
+            list.remove(random);
+        }
 
     }
 
@@ -402,24 +394,17 @@ public class HomeFragment extends Fragment implements MyOKHttpUtils.OKHttpHelper
     @Override
     public void OnResponse(String message) {
         try {
-            Log.i("test", "OnResponse: " + message);
             JSONObject object = new JSONObject(message);
             JSONObject result = object.getJSONObject("result");
-            Log.i("test", "OnResponse: " + result);
             JSONArray data = result.getJSONArray("data");
-            Log.i("test", "OnResponse: " + data);
             JSONObject content = data.getJSONObject(0);
-            Log.i("test", "OnResponse: " + content);
             String title = content.getString("title");
-            Log.i("test", "OnResponse: " + title);
             JSONArray albums = content.getJSONArray("albums");
             String imageurl = albums.getString(0);
-            Log.i("test", "OnResponse: " + imageurl);
             ShareData SD = new ShareData();
             SD.setTitle(title);
             SD.setImage_url(imageurl);
             hotlist.add(SD);
-            Log.i("test", "OnResponse: " + hotlist.get(0).getTitle());
             hotadapter.refresh();
         } catch (JSONException e) {
             e.printStackTrace();
@@ -427,7 +412,11 @@ public class HomeFragment extends Fragment implements MyOKHttpUtils.OKHttpHelper
     }
 
     @Override
-    public void changeDrawable(String url) {
+    public void getDrawable(Drawable drawable) {
 
+    }
+
+    public void setActivity(EventDataPass activity) {
+        this.activity = activity;
     }
 }

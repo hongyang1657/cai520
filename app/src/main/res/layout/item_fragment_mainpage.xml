@@ -8,247 +8,261 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:orientation="vertical"></LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/mainpage_home_titlebank"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/mainpage_home_systemset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:background="@null"
+            android:padding="10dp"
+            android:text="设置"
+            android:textSize="18sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="菜友帮"
+            android:textColor="@color/colorCrociOne"
+            android:textSize="30sp" />
+
+        <Button
+            android:id="@+id/mainpage_home_search"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:background="@null"
+            android:drawableRight="@mipmap/search"
+            android:paddingRight="10dp"
+            android:textSize="10sp" />
+    </RelativeLayout>
+
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-    <LinearLayout
-        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
->
+        android:layout_below="@id/mainpage_home_titlebank">
 
-        <RelativeLayout
-            android:id="@+id/mainpage_home_titlebank"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <Gallery
+                    android:id="@+id/mainpage_home_gallery"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"></Gallery>
+
+                <RadioGroup
+                    android:id="@+id/mainpage_home_gallerychoose"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@id/mainpage_home_gallery"
+                    android:layout_centerInParent="true"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/mainpage_home_choose1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <RadioButton
+                        android:id="@+id/mainpage_home_choose2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <RadioButton
+                        android:id="@+id/mainpage_home_choose3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <RadioButton
+                        android:id="@+id/mainpage_home_choose4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </RadioGroup>
+            </RelativeLayout>
 
             <TextView
-                android:id="@+id/mainpage_home_systemset"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:background="@null"
-                android:padding="10dp"
-                android:textSize="18sp"
-                android:text="设置" />
+                android:layout_weight="1" />
+
+            <LinearLayout
+                android:id="@+id/mainpage_home_line1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/mainpage_home_gallery"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp">
+
+                <Button
+                    android:id="@+id/button_chuan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:drawableTop="@drawable/selector_chuan" />
+
+                <Button
+                    android:id="@+id/button_lu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:drawableTop="@drawable/selector_lu" />
+
+                <Button
+                    android:id="@+id/button_yue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:drawableTop="@drawable/selector_yue" />
+
+                <Button
+                    android:id="@+id/button_su"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:drawableTop="@drawable/selecor_su" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/mainpage_home_line2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/mainpage_home_line1"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp">
+
+                <Button
+                    android:id="@+id/button_zhe"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:drawableTop="@drawable/selector_zhe" />
+
+                <Button
+                    android:id="@+id/button_min"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:drawableTop="@drawable/selector_min" />
+
+                <Button
+                    android:id="@+id/button_xiang"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:drawableTop="@drawable/selector_xiang" />
+
+                <Button
+                    android:id="@+id/button_hui"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:drawableTop="@drawable/selector_hui" />
+            </LinearLayout>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:text="食聊"
-                android:textColor="@color/colorCrociOne"
-                android:textSize="30sp" />
+                android:layout_weight="1" />
 
-            <Button
-                android:id="@+id/mainpage_home_search"
-                android:layout_width="50dp"
+            <RelativeLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:background="@null"
-                android:drawableRight="@mipmap/search"
-                android:paddingRight="10dp"
-                android:textSize="10sp" />
-        </RelativeLayout>
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp">
 
+                <Button
+                    android:id="@+id/mainpage_home_event"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:drawableLeft="@mipmap/event"
+                    android:drawablePadding="10dp"
+                    android:text="最新活动"
+                    android:textSize="20sp" />
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1">
+                <Button
+                    android:id="@+id/mainpage_home_moreevent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@id/mainpage_home_event"
+                    android:layout_alignParentRight="true"
+                    android:background="@null"
+                    android:focusable="true"
+                    android:text="查看更多..." />
+            </RelativeLayout>
 
             <Gallery
-                android:id="@+id/mainpage_home_gallery"
+                android:id="@+id/mainpage_home_eventgallery"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"></Gallery>
-
-            <RadioGroup
-                android:id="@+id/mainpage_home_gallerychoose"
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignBottom="@id/mainpage_home_gallery"
-                android:layout_centerInParent="true"
-                android:orientation="horizontal">
-
-                <RadioButton
-                    android:id="@+id/mainpage_home_choose1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-
-                <RadioButton
-                    android:id="@+id/mainpage_home_choose2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-
-                <RadioButton
-                    android:id="@+id/mainpage_home_choose3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-
-                <RadioButton
-                    android:id="@+id/mainpage_home_choose4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-            </RadioGroup>
-        </RelativeLayout>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"/>
-        <LinearLayout
-            android:id="@+id/mainpage_home_line1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/mainpage_home_gallery"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp">
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_below="@id/mainpage_home_event"
                 android:layout_weight="1"
-                android:background="@null"
-                android:drawableTop="@drawable/selector_chuan"
-                android:id="@+id/button_chuan"/>
+                android:background="@mipmap/ic_launcher"
+                android:layout_marginRight="40dp"
+                android:layout_marginLeft="40dp"></Gallery>
 
-            <Button
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@null"
-                android:drawableTop="@drawable/selector_lu"
-                android:id="@+id/button_lu"/>
+                android:layout_weight="1" />
 
-            <Button
-                android:layout_width="wrap_content"
+            <RelativeLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@null"
-                android:drawableTop="@drawable/selector_yue"
-                android:id="@+id/button_yue"/>
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="10dp">
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@null"
-                android:drawableTop="@drawable/selecor_su"
-                android:id="@+id/button_su"/>
+                <Button
+                    android:id="@+id/mainpage_home_recipe"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:drawableLeft="@mipmap/hot"
+                    android:drawablePadding="10dp"
+                    android:text="热门菜谱"
+                    android:textSize="20sp" />
+
+                <Button
+                    android:id="@+id/mainpage_home_morerecipe"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@id/mainpage_home_recipe"
+                    android:layout_alignParentRight="true"
+                    android:background="@null"
+                    android:text="查看更多..." />
+            </RelativeLayout>
+
+            <Gallery
+                android:id="@+id/mainpage_home_recipegallery"
+                android:layout_width="fill_parent"
+                android:layout_height="300dp"
+                android:layout_below="@id/mainpage_home_recipe"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:layout_weight="1"></Gallery>
         </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/mainpage_home_line2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/mainpage_home_line1"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp">
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@null"
-                android:drawableTop="@drawable/selector_zhe"
-                android:id="@+id/button_zhe"/>
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@null"
-                android:drawableTop="@drawable/selector_min"
-                android:id="@+id/button_min"/>
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@null"
-                android:drawableTop="@drawable/selector_xiang"
-                android:id="@+id/button_xiang"/>
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@null"
-                android:drawableTop="@drawable/selector_hui"
-                android:id="@+id/button_hui"/>
-        </LinearLayout>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"/>
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp">
-
-            <Button
-                android:background="@null"
-                android:id="@+id/mainpage_home_event"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="最新活动"
-                android:textSize="20sp" />
-
-            <Button
-                android:background="@null"
-                android:id="@+id/mainpage_home_moreevent"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBottom="@id/mainpage_home_event"
-                android:layout_alignParentRight="true"
-                android:text="查看更多..."
-                android:focusable="true"/>
-        </RelativeLayout>
-
-        <Gallery
-            android:id="@+id/mainpage_home_eventgallery"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/mainpage_home_event"
-            android:layout_weight="1"
-            android:background="@mipmap/ic_launcher"></Gallery>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"/>
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginTop="10dp">
-
-            <Button
-                android:background="@null"
-                android:id="@+id/mainpage_home_recipe"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="热门菜谱"
-                android:textSize="20sp" />
-
-            <Button
-                android:background="@null"
-                android:id="@+id/mainpage_home_morerecipe"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBottom="@id/mainpage_home_recipe"
-                android:layout_alignParentRight="true"
-                android:text="查看更多..." />
-        </RelativeLayout>
-
-        <Gallery
-            android:id="@+id/mainpage_home_recipegallery"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/mainpage_home_recipe"
-            android:layout_weight="1"
-            android:background="@mipmap/ic_launcher"></Gallery>
-    </LinearLayout>
     </ScrollView>
 </RelativeLayout>

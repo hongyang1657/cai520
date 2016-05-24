@@ -104,8 +104,10 @@ public class ShareFragment extends Fragment implements MyOKHttpUtils.OKHttpHelpe
     }
 
     @Override
-    public void changeDrawable(String url) {
+    public void getDrawable(Drawable drawable) {
 
     }
+
+
 
 }
