@@ -30,6 +30,7 @@ import android.widget.Toast;
 import com.bhz.android.caiyoubang.R;
 import com.bhz.android.caiyoubang.activity.DemoMenuActivity;
 import com.bhz.android.caiyoubang.activity.EventForMoreActivity;
+import com.bhz.android.caiyoubang.activity.MenuActivity;
 import com.bhz.android.caiyoubang.activity.SearchActivity;
 import com.bhz.android.caiyoubang.adapter.EventSummaryAdapter;
 import com.bhz.android.caiyoubang.adapter.HotAdapter;
@@ -142,8 +143,7 @@ public class HomeFragment extends Fragment implements MyOKHttpUtils.OKHttpHelper
         randomlist = new ArrayList<>();
         hotlist = new ArrayList<>();
         fulleventlist = new ArrayList<>();//定义一个包括所有活动的list
-        setList();
-        fulleventlist = list;  //这还是一个包括所有活动的list
+        setList();//这还是一个包括所有活动的list
         setRandomList();    //这一步之后所有活动被随机分成两部分并填充
         sethotlist();        //设置热门菜list
         EventSummaryAdapter eventadapter = new EventSummaryAdapter(homepage, randomlist);
@@ -155,6 +155,7 @@ public class HomeFragment extends Fragment implements MyOKHttpUtils.OKHttpHelper
         gallery_title.setOnItemSelectedListener(titleselect);
         group_title.setOnCheckedChangeListener(titlegroupchoose);
         btn_forsearch.setOnClickListener(search);
+        gallery_hot.setOnItemClickListener(toContent);
     }
 
     //通过网络获取热门菜并将图片解析为Drawable文件
@@ -172,6 +173,18 @@ public class HomeFragment extends Fragment implements MyOKHttpUtils.OKHttpHelper
         @Override
         public void onClick(View v) {
             Intent intent = new Intent(homepage, SearchActivity.class);
+            startActivity(intent);
+        }
+    };
+
+
+    AdapterView.OnItemClickListener toContent=new AdapterView.OnItemClickListener() {
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            String name=hotlist.get(position).getTitle();
+            Intent intent=new Intent(getActivity(), MenuActivity.class);
+            intent.putExtra("content",name);
+            intent.putExtra("CDKey",3);
             startActivity(intent);
         }
     };
@@ -211,6 +224,7 @@ public class HomeFragment extends Fragment implements MyOKHttpUtils.OKHttpHelper
     private void setList() {
         for (int i = 1; i <= 8; i++) {
             list.add(setEventSummary(i));
+            fulleventlist.add(setEventSummary(i));
         }
     }
 
@@ -343,7 +357,7 @@ public class HomeFragment extends Fragment implements MyOKHttpUtils.OKHttpHelper
             switch (v.getId()) {
                 case R.id.mainpage_home_moreevent:
                     activity.dataPass(fulleventlist,true);
-
+                    activity.setButton();
                     break;
                 case R.id.mainpage_home_morerecipe:
                     break;
@@ -415,6 +429,12 @@ public class HomeFragment extends Fragment implements MyOKHttpUtils.OKHttpHelper
     public void getDrawable(Drawable drawable) {
 
     }
+
+    @Override
+    public void getdetail(String menuname, String menuabstract, String menustuff, String menutips, String menuimagehead, String[] imalist, String[] detailist) {
+
+    }
+
 
     public void setActivity(EventDataPass activity) {
         this.activity = activity;

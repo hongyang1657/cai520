@@ -62,7 +62,6 @@ public class MenuBaseAdapter extends BaseAdapter{
         holder = (ViewHolder) convertView.getTag();
         holder.stepNumber.setText(""+(position+1));
         holder.stepText.setText(stepList[position]);
-
         Picasso.with(context).load(imgList[position].replaceAll("\\]|\"|\\[|\\\\","")).into(holder.stepImage);
         return convertView;
     }

@@ -78,6 +78,11 @@ public class HotAdapter extends MyBaseAdapter implements MyOKHttpUtils.OKHttpHel
         }
     }
 
+    @Override
+    public void getdetail(String menuname, String menuabstract, String menustuff, String menutips, String menuimagehead, String[] imalist, String[] detailist) {
+
+    }
+
 
     private final class ViewHolder {
         ImageView image;

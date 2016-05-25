@@ -7,8 +7,7 @@
     <RelativeLayout
         android:id="@+id/mainpage_my_titlebank"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#FF9D6F">
+        android:layout_height="wrap_content">
 
         <TextView
             android:id="@+id/mainpage_my_systemset"
@@ -34,19 +33,13 @@
             android:textSize="16sp" />
     </RelativeLayout>
 
-    <ImageView
-        android:id="@+id/mainpage_my_background"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_below="@id/mainpage_my_titlebank"
-        android:scaleType="centerCrop"
-        android:src="@mipmap/defaultbackground" />
+
 
     <TextView
         android:id="@+id/mainpage_my_item"
         android:layout_width="wrap_content"
         android:layout_height="60dp"
-        android:layout_alignTop="@id/mainpage_my_background"
+        android:layout_alignTop="@id/mainpage_my_titlebank"
         android:visibility="invisible" />
 
     <ImageView

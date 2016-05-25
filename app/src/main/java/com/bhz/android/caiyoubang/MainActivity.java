@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.ImageView;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 
@@ -37,7 +38,6 @@ public class MainActivity extends Activity implements EventDataPass {//利用借
     int loginjudge = 0;
     //判断是否第一次进入程序以及是否打开引导页
     SharedPreferences sp;
-    MyFragment myfragment;
     ImageView iv_sendMenu;
     boolean judge = false;
     List<EventSummary> list;
@@ -143,9 +143,6 @@ public class MainActivity extends Activity implements EventDataPass {//利用借
                 Fragment myfragment = new MyFragment();
                 transaction.replace(R.id.mainpage_main_fragment, myfragment, "myfragment");
                 transaction.commit();
-                Fragment fragment = fragmentManager.findFragmentByTag("myfragment");
-
-
                 break;
             case 5:
                 transaction = fragmentManager.beginTransaction();
@@ -168,6 +165,24 @@ public class MainActivity extends Activity implements EventDataPass {//利用借
     public void dataPass(List<EventSummary> list, boolean judge) {
         this.list = list;
         this.judge = judge;
+        if (judge == false) {
+            transaction = fragmentManager.beginTransaction();
+            HomeFragment homefrag = new HomeFragment();
+            homefrag.setActivity(this);
+            transaction.replace(R.id.mainpage_main_fragment, homefrag);
+            transaction.commit();
+        } else if (judge == true) {
+            transaction = fragmentManager.beginTransaction();
+            DiscoveryFragment discoveryfrag = new DiscoveryFragment();
+            transaction.replace(R.id.mainpage_main_fragment, discoveryfrag);
+            transaction.commit();
+        }
+    }
+
+    @Override
+    public void setButton() {
+        RadioButton rb= (RadioButton) group_mainpage.getChildAt(3);
+        rb.setChecked(true);
     }
 
 

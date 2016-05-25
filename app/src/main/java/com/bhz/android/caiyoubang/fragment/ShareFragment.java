@@ -1,6 +1,7 @@
 package com.bhz.android.caiyoubang.fragment;
 
 import android.app.Fragment;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
@@ -12,10 +13,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
 import com.bhz.android.caiyoubang.R;
+import com.bhz.android.caiyoubang.activity.MenuActivity;
 import com.bhz.android.caiyoubang.adapter.ShareGridAdapter;
 import com.bhz.android.caiyoubang.data.ShareData;
 import com.bhz.android.caiyoubang.utils.MyOKHttpUtils;
@@ -38,6 +41,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 import com.huewu.pla.lib.MultiColumnListView;
+import com.huewu.pla.lib.internal.PLA_AdapterView;
 
 
 /**
@@ -68,7 +72,19 @@ public class ShareFragment extends Fragment implements MyOKHttpUtils.OKHttpHelpe
         setlist();
         adapter = new ShareGridAdapter(getActivity(), list);
         listview.setAdapter(adapter);
+        listview.setOnItemClickListener(todetail);
     }
+
+    PLA_AdapterView.OnItemClickListener todetail=new PLA_AdapterView.OnItemClickListener() {
+        @Override
+        public void onItemClick(PLA_AdapterView<?> parent, View view, int position, long id) {
+            String name=list.get(position).getTitle();
+            Intent intent=new Intent(getActivity(),MenuActivity.class);
+            intent.putExtra("CDKey",3);
+            intent.putExtra("content",name);
+            startActivity(intent);
+        }
+    };
 
     private void setlist() {
         for (int i = 0; i <10; i++) {
@@ -108,6 +124,10 @@ public class ShareFragment extends Fragment implements MyOKHttpUtils.OKHttpHelpe
 
     }
 
+    @Override
+    public void getdetail(String menuname, String menuabstract, String menustuff, String menutips, String menuimagehead, String[] imalist, String[] detailist) {
+
+    }
 
 
 }
