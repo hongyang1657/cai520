@@ -31,7 +31,7 @@ public class DBOperator {
     }
 
     // 查询库中内容
-    public void queryALLDATA(String strUserId,EditText etName, EditText etSex, EditText etArea, EditText etBirthday) {
+    public void queryALLDATA(String strUserId,EditText etName, EditText etSex, EditText etArea, TextView etBirthday) {
         Cursor cursor = db.query(DBConfig.DB_NAME, null,DBConfig.USER_ID + "=?", new String[] {strUserId}, null, null,null);
         while (cursor.moveToNext()) {
             UserData data = buildUserdataFromCursor(cursor);
@@ -43,7 +43,7 @@ public class DBOperator {
         cursor.close();
     }
 
-    public void queryALLDATAFromQQ(String strUserName,EditText etName, EditText etSex, EditText etArea, EditText etBirthday,EditText etQmd) {
+    public void queryALLDATAFromQQ(String strUserName,EditText etName, EditText etSex, EditText etArea, TextView etBirthday,EditText etQmd) {
         Cursor cursor = db.query(DBConfig.DB_NAME, null,DBConfig.USER_NAME + "=?", new String[] {strUserName}, null, null,null);
         while (cursor.moveToNext()) {
             UserData data = buildUserdataFromCursor(cursor);
