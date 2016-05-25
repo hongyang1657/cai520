@@ -37,7 +37,9 @@ public class EventSummaryAdapter extends MyBaseAdapter<EventSummary> {
             convertView.setTag(holder);
         }
         holder= (ViewHolder) convertView.getTag();
-        holder.image_eventsummary.setBackgroundResource(list.get(position).getResID());
+/*        holder.image_eventsummary.setBackgroundResource(list.get(position).getResID());*/
+        holder.image_eventsummary.setImageResource(list.get(position).getResID());
+        holder.image_eventsummary.setScaleType(ImageView.ScaleType.FIT_XY);
         return convertView;
     }
 

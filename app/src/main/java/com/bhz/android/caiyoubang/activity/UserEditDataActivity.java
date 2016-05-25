@@ -1,6 +1,7 @@
 package com.bhz.android.caiyoubang.activity;
 
 import android.app.Activity;
+import android.app.DatePickerDialog;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
@@ -8,6 +9,7 @@ import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -20,6 +22,8 @@ import com.bhz.android.caiyoubang.db.DBOperator;
 import com.bhz.android.caiyoubang.db.MyDbHelper;
 import com.bhz.android.caiyoubang.domian.UserData;
 import com.squareup.picasso.Picasso;
+
+import java.util.Calendar;
 
 /**
  * Created by Administrator on 2016/4/26 0026.
@@ -38,7 +42,7 @@ public class UserEditDataActivity extends Activity {
     EditText etName;            // 资料编辑页面的昵称输入框
     EditText etSex;             // 资料编辑页面的性别输入框
     EditText etArea;            // 资料编辑页面的地区输入框
-    EditText etBirthday;       // 资料编辑页面的用户生日
+    TextView tvBirthday;       // 资料编辑页面的用户生日
     EditText etQmd;             // 资料编辑页面的用户签名
     ImageView imgUserPhoto;   //  编辑资料的用户头像
 
@@ -47,6 +51,11 @@ public class UserEditDataActivity extends Activity {
     SharedPreferences sharedPreferences;
     int loginType;
     String userName;
+
+    Calendar cal;
+    int year;
+    int month;
+    int day;
 
     /*
     *  flag = 0;修改状态 ； flag = 1 保存状态 ；
@@ -65,6 +74,7 @@ public class UserEditDataActivity extends Activity {
         userId = sharedPreferences.getString("USERID", null);
         tvBack.setOnClickListener(click);
         tvSave.setOnClickListener(click);
+        tvBirthday.setOnClickListener(click);
     }
 
     private void initData() {
@@ -75,14 +85,16 @@ public class UserEditDataActivity extends Activity {
         etName = (EditText) findViewById(R.id.et_user_edit_data_name);
         etSex = (EditText) findViewById(R.id.et_user_edit_data_sex);
         etArea = (EditText) findViewById(R.id.et_user_edit_data_area);
-        etQmd= (EditText) findViewById(R.id.et_user_edit_data_QMD);
-        etBirthday = (EditText) findViewById(R.id.et_user_edit_data_birthday);
+        etQmd = (EditText) findViewById(R.id.et_user_edit_data_QMD);
+        tvBirthday = (TextView) findViewById(R.id.et_user_edit_data_birthday);
         imgUserPhoto = (ImageView) findViewById(R.id.img_user_edit_data_photo);
         tvSave.setText("修改");
         etName.setEnabled(false);
         etSex.setEnabled(false);
         etArea.setEnabled(false);
-        etBirthday.setEnabled(false);
+        etQmd.setEnabled(false);
+        cal = Calendar.getInstance();
+        dateUtil();
     }
 
     View.OnClickListener click = new View.OnClickListener() {
@@ -100,7 +112,7 @@ public class UserEditDataActivity extends Activity {
                             etName.setEnabled(true);
                             etSex.setEnabled(true);
                             etArea.setEnabled(true);
-                            etBirthday.setEnabled(true);
+                            etQmd.setEnabled(true);
                             flag = 1;
                             break;
                         case 1:
@@ -111,10 +123,26 @@ public class UserEditDataActivity extends Activity {
                             break;
                         case 2:
                             Toast.makeText(UserEditDataActivity.this, "请登录您的账号", Toast.LENGTH_SHORT).show();
+                            break;
                     }
+                    break;
+                case R.id.et_user_edit_data_birthday:
+                    new DatePickerDialog(UserEditDataActivity.this, new DatePickerDialog.OnDateSetListener() {
+                        @Override
+                        public void onDateSet(DatePicker view, int year1, int monthOfYear, int dayOfMonth) {
+                            tvBirthday.setText(year1+"-"+(monthOfYear+1)+"-"+dayOfMonth);
+                            year=year1;
+                            month=monthOfYear+1;
+                            day=dayOfMonth;
+                        }
+                    }, year, cal.get(Calendar.MONTH), day).show();
+                    break;
             }
         }
     };
+
+
+
 
     private void saveUserData() {
         String userNewName = etName.getText().toString();
@@ -124,23 +152,23 @@ public class UserEditDataActivity extends Activity {
         data.setUserName(etName.getText().toString());          //获取用户输入的昵称
         data.setUserSex(etSex.getText().toString());            //获取用户输入的性别
         data.setUserArea(etArea.getText().toString());          //获取用户输入的地域
-        data.setUserBirthday(etBirthday.getText().toString());  //获取用户的生日信息
+        data.setUserBirthday(year+"-"+month+"-"+day);  //获取用户的生日信息
         data.setUserQMD(etQmd.getText().toString());            // 获取用户的签名
         values.put(DBConfig.USER_NAME, data.getUserName());               //用户的昵称填入数据
         values.put(DBConfig.USER_SEX, data.getUserSex());                 //用户的性别数据
         values.put(DBConfig.USER_AREA, data.getUserArea());               //用户的地域数据
         values.put(DBConfig.USER_BIRTHDAY, data.getUserBirthday());      //用户的生日数据
-        values.put(DBConfig.USER_QMD,data.getUserQMD());
-           switch (loginType) {
-               case 1:
-                   operator.UpdateNote(values, userId);
-                   break;
-               case 2:
-                   operator.UpdateNoteFromQQ(values,userName);
-                   SharedPreferences.Editor editor = sharedPreferences.edit();
-                   editor.putString("QQNAME", userNewName);
-                   editor.commit();
-                   break;
+        values.put(DBConfig.USER_QMD, data.getUserQMD());
+        switch (loginType) {
+            case 1:
+                operator.UpdateNote(values, userId);
+                break;
+            case 2:
+                operator.UpdateNoteFromQQ(values, userName);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putString("QQNAME", userNewName);
+                editor.commit();
+                break;
         }
 
     }
@@ -150,19 +178,25 @@ public class UserEditDataActivity extends Activity {
         super.onStart();
         database = helper.getWritableDatabase();
         database = helper.getReadableDatabase();
-        switch (loginType){
+        switch (loginType) {
             case 1:
-                operator.queryALLDATA(userId, etName, etSex, etArea, etBirthday);
+                operator.queryALLDATA(userId, etName, etSex, etArea, tvBirthday);
                 break;
             case 2:
-                String imgQQPhotUrl = sharedPreferences.getString("QQIcon",null);
+                String imgQQPhotUrl = sharedPreferences.getString("QQIcon", null);
                 Picasso.with(this).load(imgQQPhotUrl).into(imgUserPhoto);
-                operator.queryALLDATAFromQQ(userName, etName, etSex, etArea, etBirthday,etQmd);
+                operator.queryALLDATAFromQQ(userName, etName, etSex, etArea, tvBirthday, etQmd);
                 break;
             case 3:
-                operator.queryALLDATA(userId, etName, etSex, etArea, etBirthday);
-                flag=2;
+                operator.queryALLDATA(userId, etName, etSex, etArea, tvBirthday);
+                flag = 2;
         }
+    }
+
+    private void dateUtil() {
+        year = cal.get(Calendar.YEAR);
+        month = cal.get(Calendar.MONTH);
+        day = cal.get(Calendar.DAY_OF_MONTH);
     }
 
     @Override

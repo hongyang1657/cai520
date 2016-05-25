@@ -1,9 +1,15 @@
 package com.bhz.android.caiyoubang.utils;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import android.util.Log;
 import android.widget.Toast;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Map;
 import java.util.logging.Handler;
 import java.util.logging.LogRecord;
@@ -74,6 +80,39 @@ public class MyOKHttpUtils {
         });
     }
 
+    public void getDrawable(String url,final OKHttpHelper helper){
+        Request request=new Request.Builder().url(url).build();
+        Call call=client.newCall(request);
+        call.enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                if(helper!=null){
+                    handler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            helper.OnFailure("获取网络数据失败");
+                        }
+                    });
+                }
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                InputStream pic_in=response.body().byteStream();
+                Bitmap bm= BitmapFactory.decodeStream(pic_in);
+                final BitmapDrawable drawable=new BitmapDrawable(bm);
+                if(helper!=null){
+                    handler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            helper.getDrawable(drawable);
+                        }
+                    });
+                }
+            }
+        });
+    }
+
     private String appendContent(int id) {
         String sid = "?id=" + id + "&dtype=&key=07af1522a76db61e30a46ef9b1d7ef50";
         return sid;
@@ -82,6 +121,6 @@ public class MyOKHttpUtils {
     public interface OKHttpHelper{
         void OnFailure(String s);
         void OnResponse(String message);
-        void changeDrawable(String url);
+        void getDrawable(Drawable drawable);
     }
 }
