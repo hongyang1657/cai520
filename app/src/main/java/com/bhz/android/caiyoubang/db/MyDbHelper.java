@@ -51,7 +51,7 @@ public class MyDbHelper extends SQLiteOpenHelper {
             + DBConfig.USER_SEX + " varchar(20),"
             + DBConfig.USER_AREA + " varchar(50),"
             + DBConfig.USER_BIRTHDAY + " text(50))";
-
+////
     public MyDbHelper(Context context) {
         super(context, DBConfig.DB_NAME, null, MENU_DB_VERSION);
         this.mContext = context;
