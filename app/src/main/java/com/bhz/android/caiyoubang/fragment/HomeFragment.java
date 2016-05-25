@@ -342,8 +342,8 @@ public class HomeFragment extends Fragment implements MyOKHttpUtils.OKHttpHelper
         public void onClick(View v) {
             switch (v.getId()) {
                 case R.id.mainpage_home_moreevent:
-                    Intent intent = new Intent(homepage, EventForMoreActivity.class);
-                    startActivity(intent);
+                    activity.dataPass(fulleventlist,true);
+
                     break;
                 case R.id.mainpage_home_morerecipe:
                     break;
