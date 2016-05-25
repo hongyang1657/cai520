@@ -17,14 +17,17 @@ import android.view.ContextMenu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 
 import com.bhz.android.caiyoubang.R;
 import com.bhz.android.caiyoubang.adapter.HyBaseAdapter;
+import com.bhz.android.caiyoubang.db.DBConfig;
 import com.bhz.android.caiyoubang.db.MyDbHelper;
 import com.bhz.android.caiyoubang.info.CreateMenuStepInfo;
 import com.bhz.android.caiyoubang.view.ScrollListView;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -40,12 +43,15 @@ public class CreateMenuActivity extends Activity{
     public static final int CROP_PHOTO = 33;//剪裁
     ScrollListView listView;
     ImageView imageView;
+    EditText et_name;
+    EditText et_breif;
+    EditText et_material;
+    EditText et_tips;
     Button btAddStep;
     Button btSend;
     HyBaseAdapter adapter;
     int addCaipuNumber = 2;
     Uri imageUri;
-    Uri imageUri1;
     Uri stepImageUri;
     MyDbHelper dbHelper;
     CreateMenuStepInfo stepInfo;
@@ -53,6 +59,7 @@ public class CreateMenuActivity extends Activity{
     ImageView ivBack;
     Bitmap bm = null;
     int index = 0;
+    DBConfig dbConfig = new DBConfig();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,13 +68,23 @@ public class CreateMenuActivity extends Activity{
         dbHelper = new MyDbHelper(this,"MenuInfo.db",null,1);
         init();
         registerForContextMenu(imageView);//为imageview注册上下文菜单
+    }
 
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
 
     }
+
     private void init() {
+        imageView = (ImageView) findViewById(R.id.image_head);
+        et_name = (EditText) findViewById(R.id.et_name);
+        et_breif = (EditText) findViewById(R.id.et_brief);
+        et_material = (EditText) findViewById(R.id.et_material);
+        et_tips = (EditText) findViewById(R.id.et_tips);
+
         ivBack = (ImageView) findViewById(R.id.iv_back);
         listView = (ScrollListView) findViewById(R.id.list_step);
-        imageView = (ImageView) findViewById(R.id.image_head);
         btAddStep = (Button) findViewById(R.id.bt_addstep);
         btSend = (Button) findViewById(R.id.bt_send);
         //menuInfoList = new ArrayList<>();
@@ -230,11 +247,11 @@ public class CreateMenuActivity extends Activity{
 
                 break;
             case R.id.bt_send:
-                //getItemContent();
 
                 dbHelper.getWritableDatabase();
                 addDataToSQLite();
                 Intent intent = new Intent(this,MenuActivity.class);
+                intent.putExtra("CDKey",2);
                 startActivity(intent);
                 break;
             case R.id.list_step:
@@ -249,8 +266,17 @@ public class CreateMenuActivity extends Activity{
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
         //添加数据
-        values.put("content","content----");
-        values.put("image","imageUri----");
+        values.put(dbConfig.MENU_NAME,et_name.getText().toString());
+        values.put(dbConfig.BRIEF,et_breif.getText().toString());
+        values.put(dbConfig.MATERIAL,et_material.getText().toString());
+        values.put(dbConfig.TIPS,et_tips.getText().toString());
+        values.put(dbConfig.IMG_ADDRESS,img());
         db.insert("menu",null,values);
+    }
+
+    public byte[] img(){
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        bm.compress(Bitmap.CompressFormat.PNG,100,baos);
+        return baos.toByteArray();
     }
 }

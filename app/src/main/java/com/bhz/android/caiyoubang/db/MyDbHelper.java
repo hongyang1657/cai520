@@ -12,7 +12,35 @@ public class MyDbHelper extends SQLiteOpenHelper {
 
     Context mContext;
     public static final int MENU_DB_VERSION = 1;
-    private static final String SQL_CREAT_MENU = "create table if not exists menu(id integer primary key autoincrement,content text,image blob)";
+    private static final String SQL_CREAT_MENU = "create table if not exists "
+            +"menu(id integer primary key autoincrement,"
+            + DBConfig.IMG_ADDRESS+" text,"
+            + DBConfig.MENU_NAME+" varchar(20),"
+            + DBConfig.BRIEF+" varchar(150),"
+            + DBConfig.MATERIAL+" text,"
+            + DBConfig.TIPS+" text,"
+            + DBConfig.STEP_IMG1+" text,"
+            + DBConfig.STEP_TEXT1+" text,"
+            + DBConfig.STEP_IMG2+" text,"
+            + DBConfig.STEP_TEXT2+" text,"
+            + DBConfig.STEP_IMG3+" text,"
+            + DBConfig.STEP_TEXT3+" text,"
+            + DBConfig.STEP_IMG4+" text,"
+            + DBConfig.STEP_TEXT4+" text,"
+            + DBConfig.STEP_IMG5+" text,"
+            + DBConfig.STEP_TEXT5+" text,"
+            + DBConfig.STEP_IMG6+" text,"
+            + DBConfig.STEP_TEXT6+" text,"
+            + DBConfig.STEP_IMG7+" text,"
+            + DBConfig.STEP_TEXT7+" text,"
+            + DBConfig.STEP_IMG8+" text,"
+            + DBConfig.STEP_TEXT8+" text,"
+            + DBConfig.STEP_IMG9+" text,"
+            + DBConfig.STEP_TEXT9+" text,"
+            + DBConfig.STEP_IMG10+" text,"
+            + DBConfig.STEP_TEXT10+" text)";
+
+
     private static final String CREATE_TB_NOTE = "create table if not exists "
             + DBConfig.DB_NAME + "(_id integer primary key autoincrement,"
             + DBConfig.USER_PHONE + " integer,"
