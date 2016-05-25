@@ -1,7 +1,9 @@
 package com.bhz.android.caiyoubang.adapter;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Environment;
@@ -16,6 +18,7 @@ import android.widget.TextView;
 
 import com.bhz.android.caiyoubang.R;
 import com.bhz.android.caiyoubang.activity.CreateMenuActivity;
+import com.bhz.android.caiyoubang.db.MyDbHelper;
 import com.bhz.android.caiyoubang.info.CreateMenuStepInfo;
 
 import java.io.File;
@@ -37,7 +40,8 @@ public class HyBaseAdapter extends BaseAdapter{
     String[] contentList;
     Uri stepImageUri;
     Bitmap[] bitmaps = new Bitmap[10];
-
+    MyDbHelper helper = new MyDbHelper(context);
+    //SQLiteDatabase database = helper.getWritableDatabase();
 
     public HyBaseAdapter(CreateMenuActivity activity, Context context, List<CreateMenuStepInfo> list, Uri stepImageUri) {
         this.stepImageUri = stepImageUri;
@@ -79,6 +83,11 @@ public class HyBaseAdapter extends BaseAdapter{
         holder.tvStepNumber.setText(""+i);//设置步骤数目
         contentList = new String[i];
         contentList[position] = holder.etStepContent.getText().toString();//----------------需要入库
+
+        //ContentValues values = new ContentValues();
+        //values.put("content",contentList[position]);
+        //database.insert("menu","content",values);
+
         //给步骤图片设点击事件
         holder.imageStep.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -111,6 +120,7 @@ public class HyBaseAdapter extends BaseAdapter{
         return convertView;
     }
 
+
     public void addInfo(CreateMenuStepInfo stepInfo){
          if(list==null){
              list = new ArrayList<>();
@@ -130,7 +140,4 @@ public class HyBaseAdapter extends BaseAdapter{
         public EditText etStepContent;
     }
 
-    public String[] getContentList() {
-        return contentList;
-    }
 }

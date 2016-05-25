@@ -13,6 +13,7 @@ import com.bhz.android.caiyoubang.R;
  */
 public class TestActivity extends Activity{
     @Override
+    //11111111111
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.testlayout);

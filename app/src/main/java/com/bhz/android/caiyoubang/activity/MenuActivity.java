@@ -2,12 +2,14 @@ package com.bhz.android.caiyoubang.activity;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bhz.android.caiyoubang.R;
 import com.bhz.android.caiyoubang.adapter.MenuBaseAdapter;
+import com.bhz.android.caiyoubang.db.MyDbHelper;
 import com.bhz.android.caiyoubang.view.ScrollListView;
 import com.squareup.picasso.Picasso;
 
@@ -32,6 +34,8 @@ public class MenuActivity extends Activity{
     String MenuimageHead;//主图片
     String[] imgList;
     String[] stepList;
+    int CDKey;
+    MyDbHelper helper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,13 +49,20 @@ public class MenuActivity extends Activity{
     //获取点击上一个Activity的不同item解析得到的数据
     private void getintentInfo(){
         Intent intent = getIntent();
-        MenuName = intent.getStringExtra("MenuName");
-        MenuAbstract = intent.getStringExtra("MenuAbstract");
-        MenuStuff = intent.getStringExtra("MenuStuff");
-        MenuTips = intent.getStringExtra("MenuTips");
-        MenuimageHead = intent.getStringExtra("MenuimageHead");
-        imgList = intent.getStringArrayExtra("imgList");
-        stepList = intent.getStringArrayExtra("stepList");
+        CDKey = intent.getIntExtra("CDKey",0);
+        if (CDKey==1) {
+            MenuName = intent.getStringExtra("MenuName");
+            MenuAbstract = intent.getStringExtra("MenuAbstract");
+            MenuStuff = intent.getStringExtra("MenuStuff");
+            MenuTips = intent.getStringExtra("MenuTips");
+            MenuimageHead = intent.getStringExtra("MenuimageHead");
+            imgList = intent.getStringArrayExtra("imgList");
+            stepList = intent.getStringArrayExtra("stepList");
+        }else if (CDKey==2){
+            helper = new MyDbHelper(this);
+            SQLiteDatabase database = helper.getReadableDatabase();
+            //database.query("menu",null,"menu_name",);
+        }
     }
 
     private void init(){
