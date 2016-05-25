@@ -185,5 +185,11 @@ public class MainActivity extends Activity implements EventDataPass {//利用借
         rb.setChecked(true);
     }
 
+    @Override
+    public void setButton1() {
+        RadioButton rb= (RadioButton) group_mainpage.getChildAt(7);
+        rb.setChecked(true);
+    }
+
 
 }

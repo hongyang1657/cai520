@@ -10,4 +10,5 @@ import java.util.List;
 public interface EventDataPass {
     public void dataPass(List<EventSummary> list,boolean judge);
     public void setButton();
+    void setButton1();
 }

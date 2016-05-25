@@ -82,9 +82,9 @@ public class MyFragment extends Fragment {
         imgUserPhoto= (ImageView) view.findViewById(R.id.mainpage_my_icon);                    //头像
         group_mychoice.setOnCheckedChangeListener(mychoice);
         list=new ArrayList<>();
-        setlist();
+/*        setlist();
         MyRecipeAdapter adapter=new MyRecipeAdapter(getActivity(),list);
-        list_my.setAdapter(adapter);
+        list_my.setAdapter(adapter);*/
     }
 
     View.OnClickListener click = new View.OnClickListener() {
@@ -103,7 +103,7 @@ public class MyFragment extends Fragment {
         }
     };
 
-    private void setlist() {
+/*    private void setlist() {
         for(int i=0;i<10;i++){
             MyRecipe recipe=new MyRecipe();
             recipe.setName(i+"");
@@ -111,7 +111,7 @@ public class MyFragment extends Fragment {
             recipe.setContent("fuck you"+i);
             list.add(recipe);
         }
-    }
+    }*/
 
     RadioGroup.OnCheckedChangeListener mychoice = new RadioGroup.OnCheckedChangeListener() {
         @Override

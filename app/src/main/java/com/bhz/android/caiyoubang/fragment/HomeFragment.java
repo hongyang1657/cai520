@@ -135,7 +135,7 @@ public class HomeFragment extends Fragment implements MyOKHttpUtils.OKHttpHelper
         btn_forsearch = (Button) view.findViewById(R.id.mainpage_home_search);
         gallery_hot = (Gallery) view.findViewById(R.id.mainpage_home_recipegallery);
         btn_eventformore = (Button) view.findViewById(R.id.mainpage_home_moreevent);
-        btn_hotformore = (Button) view.findViewById(R.id.mainpage_home_recipe);
+        btn_hotformore = (Button) view.findViewById(R.id.mainpage_home_morerecipe);
         fragmentmanager = getChildFragmentManager();
         homepage = getActivity();
         initbutton(btnview);
@@ -154,7 +154,6 @@ public class HomeFragment extends Fragment implements MyOKHttpUtils.OKHttpHelper
         gallery_title.setAdapter(titleadapter);
         gallery_title.setOnItemSelectedListener(titleselect);
         group_title.setOnCheckedChangeListener(titlegroupchoose);
-        btn_forsearch.setOnClickListener(search);
         gallery_hot.setOnItemClickListener(toContent);
     }
 
@@ -356,10 +355,10 @@ public class HomeFragment extends Fragment implements MyOKHttpUtils.OKHttpHelper
         public void onClick(View v) {
             switch (v.getId()) {
                 case R.id.mainpage_home_moreevent:
-                    activity.dataPass(fulleventlist,true);
                     activity.setButton();
                     break;
                 case R.id.mainpage_home_morerecipe:
+                    activity.setButton1();
                     break;
             }
         }
