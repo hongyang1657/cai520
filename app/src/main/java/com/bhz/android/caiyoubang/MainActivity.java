@@ -64,7 +64,7 @@ public class MainActivity extends Activity implements EventDataPass {//利用借
             finish();
         }
     }
-////////
+///////////
     private void setDefaultFragment() {       //设置默认页面
         if (judge == false) {
             transaction = fragmentManager.beginTransaction();
