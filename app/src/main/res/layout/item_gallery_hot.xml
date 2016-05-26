@@ -17,6 +17,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/hot_gallery"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/hot_gallery"
+        android:layout_alignBottom="@id/hot_tv"
+        android:visibility="invisible"/>
 </RelativeLayout>
 
 </LinearLayout>

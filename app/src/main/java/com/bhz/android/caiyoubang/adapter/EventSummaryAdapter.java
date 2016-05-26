@@ -28,6 +28,11 @@ public class EventSummaryAdapter extends MyBaseAdapter<EventSummary> {
     }
 
     @Override
+    public int getCount() {
+        return list==null?0:(list.size())*25;
+    }
+
+    @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder holder;
         if(convertView==null) {
@@ -38,7 +43,7 @@ public class EventSummaryAdapter extends MyBaseAdapter<EventSummary> {
         }
         holder= (ViewHolder) convertView.getTag();
 /*        holder.image_eventsummary.setBackgroundResource(list.get(position).getResID());*/
-        holder.image_eventsummary.setImageResource(list.get(position).getResID());
+        holder.image_eventsummary.setImageResource(list.get(position%4).getResID());
         holder.image_eventsummary.setScaleType(ImageView.ScaleType.FIT_XY);
         return convertView;
     }

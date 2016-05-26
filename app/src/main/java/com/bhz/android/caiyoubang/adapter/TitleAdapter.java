@@ -26,7 +26,10 @@ public class TitleAdapter extends MyBaseAdapter<EventSummary> {
         this.list=list;
         inflater=LayoutInflater.from(context);
     }
-
+    @Override
+    public int getCount() {
+        return list==null?0:(list.size())*25;
+    }
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder holder;
@@ -37,7 +40,7 @@ public class TitleAdapter extends MyBaseAdapter<EventSummary> {
             convertView.setTag(holder);
         }
         holder= (ViewHolder) convertView.getTag();
-        holder.image_title.setBackgroundResource(list.get(position).getResID());
+        holder.image_title.setBackgroundResource(list.get(position%4).getResID());
         return convertView;
     }
 

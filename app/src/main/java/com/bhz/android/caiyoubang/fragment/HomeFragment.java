@@ -159,12 +159,12 @@ public class HomeFragment extends Fragment implements MyOKHttpUtils.OKHttpHelper
 
     //通过网络获取热门菜并将图片解析为Drawable文件
     private void sethotlist() {
-/*        for (int i = 0; i < 4; i++) {*/
+        for (int i = 0; i < 4; i++) {
         int id = (int) (Math.random() * 30000 + 1);
         String url = "http://apis.juhe.cn/cook/queryid";
         helper.dogetID(url, id);
         helper.excute(this);
-    /*    }*/
+        }
     }
 
 
@@ -369,7 +369,7 @@ public class HomeFragment extends Fragment implements MyOKHttpUtils.OKHttpHelper
     AdapterView.OnItemSelectedListener titleselect = new AdapterView.OnItemSelectedListener() {
         @Override
         public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-            RadioButton button = (RadioButton) group_title.getChildAt(i);
+            RadioButton button = (RadioButton) group_title.getChildAt(i%4);
             button.setChecked(true);
         }
 

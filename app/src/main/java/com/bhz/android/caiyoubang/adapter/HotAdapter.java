@@ -40,6 +40,10 @@ public class HotAdapter extends MyBaseAdapter implements MyOKHttpUtils.OKHttpHel
         utils = MyOKHttpUtils.getinit();
     }
 
+    @Override
+    public int getCount() {
+        return list==null?0:(list.size())*25;
+    }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
@@ -52,9 +56,9 @@ public class HotAdapter extends MyBaseAdapter implements MyOKHttpUtils.OKHttpHel
             convertView.setTag(holder);
         }
         holder = (ViewHolder) convertView.getTag();
-        holder.tv_content.setText(list.get(position).getTitle());
+        holder.tv_content.setText(list.get(position%4).getTitle());
 /*        Picasso.with(context).load(list.get(position).getImage_url()).into(holder.image);*/
-        utils.getDrawable(list.get(position).getImage_url(), this);
+        utils.getDrawable(list.get(position%4).getImage_url(), this);
         holder.image.setBackground(drawable);
         return convertView;
     }
